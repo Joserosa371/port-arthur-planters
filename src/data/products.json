@@ -1,0 +1,29 @@
+[
+  {
+    "id": "cedar-48x24x24",
+    "name": "Cedar Planter 48\u00d724\u00d724",
+    "price": 229,
+    "material": "Cedar",
+    "color": "Natural",
+    "size": "48x24x24",
+    "image": "/src/assets/hero1.svg"
+  },
+  {
+    "id": "redwood-72x24x24",
+    "name": "Redwood Planter 72\u00d724\u00d724",
+    "price": 329,
+    "material": "Redwood",
+    "color": "Natural",
+    "size": "72x24x24",
+    "image": "/src/assets/hero2.svg"
+  },
+  {
+    "id": "composite-48x24x18",
+    "name": "Composite Planter 48\u00d724\u00d718",
+    "price": 299,
+    "material": "Composite",
+    "color": "Charcoal",
+    "size": "48x24x18",
+    "image": "/src/assets/hero3.svg"
+  }
+]
