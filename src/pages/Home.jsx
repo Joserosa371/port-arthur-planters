@@ -16,6 +16,17 @@ export default function Home(){
   },[])
   return (
     <div className="container">
+            <div style={{ marginBottom: 24, textAlign: 'center' }}>
+        <img
+          src="/planter1.png"
+          alt="Tall cedar planter box"
+          style={{ maxWidth: '400px', width: '100%', borderRadius: '8px' }}
+        />
+        <p style={{ marginTop: 8 }}>
+          Premium cedar planter available in custom sizes.
+        </p>
+      </div>
+
       <section className="hero card" aria-label="Slideshow">
         <div className="hero-slide">
           <img src={slides[idx].src} alt={slides[idx].caption}/>
