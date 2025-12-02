@@ -1,0 +1,155 @@
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+
+const SIZES = [
+  { id: '42x20x24', label: '42" L x 20" W x 24" H', price: 420 },
+  { id: '60x20x24', label: '60" L x 20" W x 24" H', price: 520 },
+]
+
+const FINISHES = [
+  { id: 'cedar', label: 'Natural Cedar' },
+  { id: 'stain-walnut', label: 'Cedar – Walnut Stain' },
+  { id: 'composite', label: 'Composite (Low Maintenance)' },
+]
+
+export default function TallRectangularPlanter() {
+  const [size, setSize] = useState(SIZES[0])
+  const [finish, setFinish] = useState(FINISHES[0])
+
+  return (
+    <main className="container product-page" style={{ padding: '2rem 0' }}>
+      <nav className="breadcrumb" style={{ fontSize: 14, marginBottom: 16 }}>
+        <Link to="/">Home</Link> &nbsp;/&nbsp;
+        <Link to="/shop">Shop</Link> &nbsp;/&nbsp;
+        <span>Tall Rectangular Planter</span>
+      </nav>
+
+      <div className="product-layout" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 2fr) minmax(0, 3fr)', gap: '2rem', alignItems: 'flex-start' }}>
+        {/* LEFT: IMAGE */}
+        <section className="product-media">
+          <div className="card" style={{ padding: 16 }}>
+            <img
+              src="/tall-cedar-planter.png"
+              alt="Tall rectangular cedar planter"
+              style={{ width: '100%', height: 'auto', borderRadius: 8 }}
+            />
+          </div>
+          <p style={{ fontSize: 13, marginTop: 8, color: '#555' }}>
+            Actual wood tone and grain will vary. Built by hand in Port Arthur, Texas.
+          </p>
+        </section>
+
+        {/* RIGHT: DETAILS / OPTIONS */}
+        <section className="product-details">
+          <header style={{ marginBottom: 16 }}>
+            <h1 style={{ margin: 0, fontSize: 28 }}>Tall Rectangular Planter</h1>
+            <p style={{ margin: '4px 0 0', color: '#666' }}>
+              Premium cedar or composite planter box, built for patios, storefronts, and entryways.
+            </p>
+          </header>
+
+          <div style={{ marginBottom: 16 }}>
+            <div style={{ fontSize: 14, color: '#666' }}>Starting at</div>
+            <div style={{ fontSize: 28, fontWeight: 600 }}>
+              ${size.price.toFixed(0)}
+            </div>
+          </div>
+
+          {/* OPTIONS */}
+          <div className="product-options" style={{ display: 'grid', gap: '1rem', marginBottom: 24 }}>
+            <div>
+              <label style={{ fontSize: 14, fontWeight: 600, display: 'block', marginBottom: 4 }}>
+                Size
+              </label>
+              <select
+                value={size.id}
+                onChange={e => {
+                  const next = SIZES.find(s => s.id === e.target.value)
+                  setSize(next || SIZES[0])
+                }}
+                style={{ width: '100%', padding: '8px 10px', borderRadius: 4, border: '1px solid #ccc' }}
+              >
+                {SIZES.map(s => (
+                  <option key={s.id} value={s.id}>
+                    {s.label} — ${s.price}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label style={{ fontSize: 14, fontWeight: 600, display: 'block', marginBottom: 4 }}>
+                Finish
+              </label>
+              <select
+                value={finish.id}
+                onChange={e => {
+                  const next = FINISHES.find(f => f.id === e.target.value)
+                  setFinish(next || FINISHES[0])
+                }}
+                style={{ width: '100%', padding: '8px 10px', borderRadius: 4, border: '1px solid #ccc' }}
+              >
+                {FINISHES.map(f => (
+                  <option key={f.id} value={f.id}>
+                    {f.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {/* CTA AREA */}
+          <div className="product-cta" style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 24 }}>
+            <Link
+              to="/contact"
+              className="btn"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '10px 18px',
+                borderRadius: 24,
+                border: 'none',
+                background: '#2b5d3a',
+                color: '#fff',
+                fontWeight: 600,
+                textDecoration: 'none',
+              }}
+            >
+              Request a Quote
+            </Link>
+            <p style={{ fontSize: 13, color: '#555' }}>
+              We’ll confirm your size, finish, and any add-ons (casters, liners, etc.) and send a price for approval.
+            </p>
+          </div>
+
+          {/* QUICK SPECS */}
+          <section className="product-specs card" style={{ padding: 16 }}>
+            <h2 style={{ fontSize: 18, marginTop: 0 }}>Details &amp; Specs</h2>
+            <ul style={{ paddingLeft: '1.2rem', margin: 0, fontSize: 14, color: '#444', display: 'grid', gap: 4 }}>
+              <li>Select from multiple lengths to fit patios, windows, and storefronts.</li>
+              <li>Premium cedar or composite options for long-term outdoor use.</li>
+              <li>Fully lined interior and drain holes available on request.</li>
+              <li>Built by hand in Port Arthur, TX.</li>
+              <li>Ships assembled and ready to plant.</li>
+            </ul>
+          </section>
+
+          {/* LONG DESCRIPTION */}
+          <section className="product-description" style={{ marginTop: 24, fontSize: 14, color: '#444' }}>
+            <h2 style={{ fontSize: 18, marginTop: 0 }}>Overview</h2>
+            <p>
+              Our Tall Rectangular Planter is designed to define spaces and frame entries with clean, modern lines. 
+              Use a single planter to anchor a doorway, or line up several to create a low wall on your patio or along 
+              a storefront.
+            </p>
+            <p>
+              Every planter is built to order. Choose your size and finish, and we’ll build it to match — including optional
+              liners, casters, or custom drainage to fit your project.
+            </p>
+          </section>
+        </section>
+      </div>
+    </main>
+  )
+}
