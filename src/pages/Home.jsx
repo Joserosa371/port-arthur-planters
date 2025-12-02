@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-
-// ✅ IMPORT YOUR PLANTER IMAGE (this fixes it)
 import planter1 from '../assets/planter1.png'
-
-// ❗ FIX YOUR SLIDES TOO — these MUST be imported
 import hero1 from '../assets/hero1.svg'
 import hero2 from '../assets/hero2.svg'
 import hero3 from '../assets/hero3.svg'
